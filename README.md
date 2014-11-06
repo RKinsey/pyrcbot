@@ -1,8 +1,9 @@
 pyrcbot
 =======
 
-Simple Python IRC bot.
+Simple Python IRC bot.  
 
-To do:
-Convert to using Twisted (Have to finish learning it first)
-Modularity?
+To do:  
+
+Convert to using Twisted (Have to finish learning it first)  
+Modularity?  
