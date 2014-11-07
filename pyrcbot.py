@@ -37,25 +37,24 @@ while True:
     if flag==0 and recieved.find("MODE")!=-1:
         conn.send("PRIVMSG NickServ :IDENTIFY "+nspass+"\n")
         conn.send("JOIN "+channel+"\n")
-
         flag=1
     if recieved.find("PING")!=-1:
         ping()
-    if recieved.find(":mb hi")!=-1:
-	namend=recieved.find("!")
-	name=recieved[1:namend]
-	print name 
+    if ":mb hi" in recieved:
+        namend=recieved.find("!")
+        name=recieved[1:namend]
+	print name
         #chan=recieved.find("#")
 	#conn.send("PRIVMSG "+channel+" :"+"Whoo\n")
         hi(name)#channel, recieved)
-    if recieved.find(":mb join")!=-1 and auth!=-1:
-	eom=recieved.find("mb join")
-	part(channel)
-	channel=recieved[recieved.find("#",eom):recieved.find("\n")]#recieved.find(" ",eom)]
+    if ":mb join" in recieved:
+        eom=recieved.find("mb join")
+        part(channel)
+        channel=recieved[recieved.find("#",eom):recieved.find("\n")]#recieved.find(" ",eom)]
         join(channel)
    # if recieved.find(":mb test")!=-1:
     #    conn.send("PRIVMSG "+channel+ " :Hello\n")
-    if recieved.find(":mb quit")!=-1 and auth!=-1:
+    if ":mb quit" in recieved:
         quit()
         break
 conn.close()
